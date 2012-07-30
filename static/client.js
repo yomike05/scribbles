@@ -133,7 +133,7 @@ var Scribbles = {
     });
 
     Scribbles.socket.on('clear', function(data){
-      Scribbles.clear();
+      Scribbles.renew();
     });
 
     Scribbles.socket.on('clientcount', function(data){
