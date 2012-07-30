@@ -1,0 +1,23 @@
+# Standard NodeJS project ignores
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+tmp
+
+pids
+logs
+results
+
+node_modules
+npm-debug.log
+
+
+# Extra
+.DS_Store
+assets
+*.rdb
