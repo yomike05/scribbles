@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="index">
+  <head>
+    <script src="/static/jquery-1.7.2.min.js"></script>
+    <script src="/static/client.js"></script>
+    <script>
+      $(document).ready(function(){
+        $.ajax({
+          url: "/get_rooms",
+          context: $("#rooms"),
+        }).done(function(data) { 
+          if (data.length > 0) {
+            $(this).empty();
+            for (var i in data) {
+              var room = data[i];
+              $(this).append("<option value='" + room.roomId + "'>" + room.roomId + " (" + room.clientCount + " Clients)</option>")
+            }
+          }
+        });
+        $.ajax({
+          url: "/random_board",
+          context: $("#whiteboard"),
+        }).done(function(data) { 
+          if (data.roomId) {
+            $(this).empty();
+            Scribbles.replay(data.events, { strokeStyle : "#333"});
+            $("#roominfo").html("<p>( scribble from <strong><a href='/?roomId=" + data.roomId + "'>" + data.roomId + "</a></strong> )</p>");
+          }
+        });
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  </head>
+  <body>
+    <div id="whiteboard"></div>
+    <div id="header">
+      <div id="login">
+        <h1>scribbles</h1>
+        <form method="get" action="/create_room" class="form-inline">
+          <input type="submit" value="Create room" class="btn btn-success">
+        </form>
+        <h2>OR</h2>
+        <form method="get" action="/" class="form-inline">
+          <select id="rooms" name="roomId">
+            <option>No Rooms Yet</option>
+          </select>
+          <input type="submit" value="Join room" class="btn btn-success">
+        </form>
+      </div>
+      <div id="intro">
+        <p><strong>Just another whiteboard/chat app</strong> built with node.js and socket.io</p>
+      </div>
+      <div id="roominfo"></div>
+    </div>
+</body>
+</html>

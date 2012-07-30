@@ -1,0 +1,121 @@
+body {
+  overflow:hidden;
+  position:fixed;
+  width:100%;
+  background-image:url("/static/groovepaper.png");
+}
+
+.index body {
+  background-image:url("/static/broken_noise.png");
+  background-color:#2e2e2e;
+}
+
+form { 
+  margin:0; 
+}
+
+#intro {
+  margin-top:40px;
+  color:#fff;
+  text-align:center;
+  font-size:16px;
+  text-shadow:2px 2px 2px rgba(0,0,0,1);
+}
+
+#header {
+  position:relative;
+  z-index:100;
+  margin-top:150px;
+}
+
+#login {
+  padding:40px 0;
+  text-align:center;
+  color:#fff;
+  background:rgba(0, 0, 0, 0.75);
+}
+
+#login h1, #login h2, #login form  {
+  display:inline-block;
+  vertical-align:middle;
+}
+
+#login h1 {
+  padding-right:30px;
+  border-right:1px solid #1e1e1e;
+  margin-right:30px;
+  font-size:40px;
+}
+
+#login h2 {
+  margin:0 15px;
+  color:#2e2e2e;
+}
+
+#roominfo {
+  margin-top:150px;
+  text-align:center;
+  color:#fff;
+}
+
+.navbar-inner {
+  background-image:url("/static/broken_noise.png");
+  padding:8px 0;
+  -webkit-box-shadow:  0px -2px 7px 0px rgba(0, 0, 0, 0.5);
+  box-shadow:  0px -2px 7px 0px rgba(0, 0, 0, 0.5);
+}
+
+#chat {
+  background-color:transparent;
+  position:fixed;
+  z-index:100;
+  left: 15px; bottom: 70px;
+  overflow:auto;
+  width:350px;
+}
+
+#chat ul {
+  margin:0;
+  padding:0;
+}
+
+#chat ul > li {  
+  color:#01DF01;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-size:14px;
+}
+
+#whiteboard { 
+  position:fixed; 
+  z-index:50;
+  width:2000px;
+  height:2000px;
+  border:0px solid #000;
+  left:50%;
+  margin-left:-1000px;
+}
+
+#loading {
+  color:#000;
+  text-align:center;
+  margin-top:50px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+#enable-button {
+  margin-right:0;
+}
+
+#share {
+  margin: 5px 5px 6px;
+  background-color:rgba(255,255,255,0.3);
+  border:1px solid #000;
+  color:#ccc;
+  font-size:11px;
+  width:250px;
+}
+
+#exit-button {
+  text-align:right;
+}

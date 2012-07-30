@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="/static/jquery-1.7.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/client.js"></script>
+    <script>
+      $(document).ready(function(){
+        Scribbles.start();
+      });
+    </script>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  </head>
+  <body>
+    <div id="chat">
+      <ul>
+        <li>Welcome to Scribbles. Draw on this window.</li>
+    </div>
+    <div id="whiteboard"></div>
+    <div id="navbar" class="navbar navbar-fixed-bottom">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span4">
+              <form id="chat-form" class="form-inline">
+                <input type="text" id="message"/>
+                <input type="submit" class="btn btn-inverse" value="Send" >
+                <span>(<span id="client-count">0</span>&nbsp;Clients)</span>
+              </form>
+            </div>
+            <div class="span3">
+              <input type="button" class="btn btn-inverse" id="clear-button" value="Clear Whiteboard"/>
+            </div>
+            <div class="span4">
+              <span>Share:</span><input type="text" id="share" name="share"/>
+            </div>
+            <div class="span1">
+              <button id="exit-button" class="btn btn-danger">Exit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
