@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/static/style.css" />
   </head>
   <body>
-    <div id="chat">
+    <div id="chat" class="connected">
       <ul>
         <li>Welcome to Scribbles. Draw on this window.</li>
     </div>
@@ -23,16 +23,20 @@
         <div class="container-fluid">
           <div class="row-fluid">
             <div class="span4">
-              <form id="chat-form" class="form-inline">
-                <input type="text" id="message"/>
-                <input type="submit" class="btn btn-inverse" value="Send" >
-                <span>(<span id="client-count">0</span>&nbsp;Clients)</span>
-              </form>
+              <div class="connected">
+                <form id="chat-form" class="form-inline">
+                  <input type="text" id="message" disabled="disabled" />
+                  <input type="submit" class="btn btn-inverse" value="Send" >
+                  <span>(<span id="client-count">0</span>&nbsp;Clients)</span>
+                </form>
+              </div>
             </div>
-            <div class="span3">
-              <input type="button" class="btn btn-inverse" id="clear-button" value="Clear Whiteboard"/>
+            <div class="span2">
+              <div class="connected">
+                <input type="button" class="btn btn-inverse" id="clear-button" value="Clear Whiteboard"/>
+              </div>
             </div>
-            <div class="span4">
+            <div class="span5">
               <span>Share:</span><input type="text" id="share" name="share"/>
             </div>
             <div class="span1">

@@ -39,7 +39,7 @@ var Scribbles = {
               x = evt.pageX - offset.left,
               y = evt.pageY - offset.top;
           Scribbles.draw("self", x, y, type);
-          Scribbles.socket.emit('draw', {roomId : Scribbles.roomId, x : x, y : y, type : type})
+          Scribbles.socket.emit('draw', { roomId : Scribbles.roomId, x : x, y : y, type : type })
         }
         if (type == "mousedown") {
           $('#whiteboard').css('z-index', 150);
@@ -50,7 +50,6 @@ var Scribbles = {
             $('#whiteboard').css('z-index', 50);
           $('#'+data.canvasId).die("mousemove");
         }
-          
         handleMouseDrag(evt);
       });
     });
@@ -87,6 +86,7 @@ var Scribbles = {
     Scribbles.renew(function() {
       Scribbles.replay(events, options);
     });
+    $('.connected').fadeIn('slow');
   },
   start : function () {
     $("#whiteboard").append('<div id="loading">Loading...</div>');
@@ -94,7 +94,7 @@ var Scribbles = {
     Scribbles.socket = io.connect();
 
     var calcWindowHeight = function() {
-      var elems = ["#whiteboard", "#shared-frame"],
+      var elems = ["#whiteboard"],
           height = $(window).height() - $("#navbar").height();
       for (var i in elems) 
         $(elems[i]).height(height);
@@ -111,7 +111,7 @@ var Scribbles = {
 
     $('#chat-form').submit( function() {
       if ($("#message").val().trim().length > 0) {
-        Scribbles.socket.emit('message', { roomId : Scribbles.roomId, message: $("#message").val()});
+        Scribbles.socket.emit('message', { roomId : Scribbles.roomId, message: $("#message").val() });
         $("#message").val("");
       }
       return false;
@@ -148,6 +148,6 @@ var Scribbles = {
       Scribbles.setup(data.events, data.options);
     });
 
-    Scribbles.socket.emit('ready', { roomId : Scribbles.roomId});
+    Scribbles.socket.emit('ready', { roomId : Scribbles.roomId });
   }
 }

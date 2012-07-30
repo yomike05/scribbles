@@ -113,9 +113,14 @@ form {
   border:1px solid #000;
   color:#ccc;
   font-size:11px;
-  width:250px;
+  width:325px;
 }
 
 #exit-button {
   text-align:right;
+}
+
+.connected {
+  display:none;
+ 
 }
